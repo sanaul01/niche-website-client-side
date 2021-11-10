@@ -27,7 +27,7 @@ const products = [
         weight: 140,
         topspeed: 155,
         price: 545000,
-        image: '',
+        image: 'https://i.ytimg.com/vi/VPEQx8m15W0/maxresdefault.jpg',
         description: 'Yamaha is an international brand. Yamaha is one of the brand among the top ten brand, This bike has most powerful engine and gorgeous looks and design.'
     },
     {
@@ -39,7 +39,7 @@ const products = [
         weight: 142,
         topspeed: 155,
         price: 545000,
-        image: '',
+        image: 'https://ic1.maxabout.us/autos/tw_india//Y/2020/5/yamaha-xsr155-front-3-quater-view.jpg',
         description: 'Yamaha is an international brand. Yamaha is one of the brand among the top ten brand, This bike has most powerful engine and gorgeous looks and design.'
     },
     {
@@ -51,11 +51,11 @@ const products = [
         weight: 145,
         topspeed: 155,
         price: 550000,
-        image: '',
+        image: 'https://www.banglamotor.net/images/honda/honda-cbr150r-f02.jpg',
         description: 'Honda is an international brand. Honda is one of the brand among the top ten brand, This bike has most powerful engine and gorgeous looks and design.'
     },
     {
-        name: 'Yamaha CB-155R',
+        name: 'Yamaha CB-150R',
         verssion: 'Indo, Thai, Indian',
         breaking: 'Duel cheanel ABS',
         colour: 'Red, Blue, Black',
@@ -63,7 +63,7 @@ const products = [
         weight: 145,
         topspeed: 155,
         price: 550000,
-        image: '',
+        image: 'https://www.banglamotor.net/images/honda/honda-cb-150r-exmotion-real-image1.jpg',
         description: 'Honda is an international brand. Honda is one of the brand among the top ten brand, This bike has most powerful engine and gorgeous looks and design.'
     },
     {
@@ -72,10 +72,10 @@ const products = [
         breaking: 'Duel cheanel ABS',
         colour: 'Red, Blue, Black',
         mileage: '40 to 50',
-        weight: 140,
-        topspeed: 145,
+        weight: 138,
+        topspeed: 142,
         price: 350000,
-        image: '',
+        image: 'https://www.motorbeam.com/wp-content/uploads/2021-Honda-CB150R-Streetfire-Fury-Matte-Red-1200x675.jpg',
         description: 'Honda is an international brand. Honda is one of the brand among the top ten brand, This bike has most powerful engine and gorgeous looks and design.'
     },
     {
@@ -87,7 +87,7 @@ const products = [
         weight: 143,
         topspeed: 130,
         price: 350000,
-        image: '',
+        image: 'https://i.ytimg.com/vi/_BdwkqYodqw/maxresdefault.jpg',
         description: 'Honda is an international brand. Honda is one of the brand among the top ten brand, This bike has most powerful engine and gorgeous looks and design.'
     },
     {
@@ -99,7 +99,7 @@ const products = [
         weight: 142,
         topspeed: 155,
         price: 450000,
-        image: '',
+        image: 'https://qph.fs.quoracdn.net/main-qimg-8b0dc65ad379302b62b7badd0e8e640b',
         description: 'Suzuki is an international brand. Suzuki is one of the brand among the top ten brand, This bike has most powerful engine and gorgeous looks and design.'
     },
     {
@@ -111,7 +111,7 @@ const products = [
         weight: 145,
         topspeed: 155,
         price: 450000,
-        image: '',
+        image: 'https://www.bikebd.com/wp-content/uploads/2020/12/suzuki-gsx-r150-yellow.jpg',
         description: 'Yamaha is an international brand. Yamaha is one of the brand among the top ten brand, This bike has most powerful engine and gorgeous looks and design.'
     },
     {
@@ -123,7 +123,7 @@ const products = [
         weight: 160,
         topspeed: 145,
         price: 360000,
-        image: '',
+        image: 'https://amarprice.com/wp-content/uploads/Taro-GP-1-Sports.jpg',
         description: 'Taro Gp-one is an chainis brand. This is the beautiful bike. This bike has most powerful engine and gorgeous looks and design.'
     },
     {
@@ -135,7 +135,7 @@ const products = [
         weight: 155,
         topspeed: 140,
         price: 330000,
-        image: '',
+        image: 'https://www.bdprice.com.bd/wp-content/uploads/2020/04/TARO-GP-2-Front.jpg',
         description: 'Taro Gp-one is an chainis brand. This is the beautiful bike. This bike has most powerful engine and gorgeous looks and design.'
     },
 ]

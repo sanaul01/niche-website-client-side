@@ -12,7 +12,7 @@ const Product = ({product}) => {
         <Card sx={{ minWidth: 275, border: 0, boxShadow: 0}}>
             <CardMedia
                 component="img"
-                style={{width: 'auto', height: '80px', margin: '0 auto'}}
+                style={{width: 'auto', height: '200px', margin: '0 auto'}}
                 image={image}
                 alt="Paella dish"
             />
