@@ -1,13 +1,13 @@
 import React from 'react';
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
 import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import { NavLink } from 'react-router-dom';
 
 const Product = ({product}) => {
-    const {name, description, image} = product
+    const {id, name, description, image} = product
     return (
         <Card sx={{ minWidth: 275, border: 0, boxShadow: 0}}>
             <CardMedia
@@ -23,10 +23,10 @@ const Product = ({product}) => {
                 <Typography variant="body2" color="text.secondary">
                     {description}
                 </Typography>
+                <NavLink style={{margin:'0 auto', textDecoration: 'none'}} to ={`/purchase/${id}`}>
+                    <Button variant="contained" size="small">Purchase Now</Button>
+                </NavLink>
             </CardContent>
-            <CardActions>
-                <Button size="small">Learn More</Button>
-            </CardActions>
         </Card>
     );
 };

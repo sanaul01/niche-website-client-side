@@ -7,6 +7,7 @@ import Typography from '@mui/material/Typography';
 
 const products = [
     {
+        id: 1,
         name: 'Yamaha R15v4',
         verssion: 'Indo, Thai, Indian',
         breaking: 'Duel cheanel ABS',
@@ -19,6 +20,7 @@ const products = [
         description: 'Yamaha is an international brand. Yamaha is one of the brand among the top ten brand, This bike has most powerful engine and gorgeous looks and design.'
     },
     {
+        id: 2,
         name: 'Yamaha MT-15',
         verssion: 'Indo, Thai, Indian',
         breaking: 'Duel cheanel ABS',
@@ -31,6 +33,7 @@ const products = [
         description: 'Yamaha is an international brand. Yamaha is one of the brand among the top ten brand, This bike has most powerful engine and gorgeous looks and design.'
     },
     {
+        id: 3,
         name: 'Yamaha XSR-155',
         verssion: 'Indo, Thai, Indian',
         breaking: 'Duel cheanel ABS',
@@ -43,6 +46,7 @@ const products = [
         description: 'Yamaha is an international brand. Yamaha is one of the brand among the top ten brand, This bike has most powerful engine and gorgeous looks and design.'
     },
     {
+        id: 4,
         name: 'Honda CBR-150',
         verssion: 'Indo, Thai, Indian',
         breaking: 'Duel cheanel ABS',
@@ -55,6 +59,7 @@ const products = [
         description: 'Honda is an international brand. Honda is one of the brand among the top ten brand, This bike has most powerful engine and gorgeous looks and design.'
     },
     {
+        id: 5,
         name: 'Yamaha CB-150R',
         verssion: 'Indo, Thai, Indian',
         breaking: 'Duel cheanel ABS',
@@ -67,6 +72,7 @@ const products = [
         description: 'Honda is an international brand. Honda is one of the brand among the top ten brand, This bike has most powerful engine and gorgeous looks and design.'
     },
     {
+        id: 6,
         name: 'Honda Stritfire',
         verssion: 'Indo, Thai, Indian',
         breaking: 'Duel cheanel ABS',
@@ -79,6 +85,7 @@ const products = [
         description: 'Honda is an international brand. Honda is one of the brand among the top ten brand, This bike has most powerful engine and gorgeous looks and design.'
     },
     {
+        id: 7,
         name: 'Honda CB-125r',
         verssion: 'Indo, Thai',
         breaking: 'Duel cheanel ABS',
@@ -91,6 +98,7 @@ const products = [
         description: 'Honda is an international brand. Honda is one of the brand among the top ten brand, This bike has most powerful engine and gorgeous looks and design.'
     },
     {
+        id: 8,
         name: 'Suzuki Gixer-150',
         verssion: 'Indo, Thai, Indian',
         breaking: 'Duel cheanel ABS',
@@ -103,6 +111,7 @@ const products = [
         description: 'Suzuki is an international brand. Suzuki is one of the brand among the top ten brand, This bike has most powerful engine and gorgeous looks and design.'
     },
     {
+        id: 9,
         name: 'Suzuki GSXR-155',
         verssion: 'Indo, Thai, Indian',
         breaking: 'Duel cheanel ABS',
@@ -112,9 +121,10 @@ const products = [
         topspeed: 155,
         price: 450000,
         image: 'https://www.bikebd.com/wp-content/uploads/2020/12/suzuki-gsx-r150-yellow.jpg',
-        description: 'Yamaha is an international brand. Yamaha is one of the brand among the top ten brand, This bike has most powerful engine and gorgeous looks and design.'
+        description: 'Suzuki is an international brand. Suzuki is one of the brand among the top ten brand, This bike has most powerful engine and gorgeous looks and design.'
     },
     {
+        id: 10,
         name: 'Taro GP-ONE v3',
         verssion: 'Chainis',
         breaking: 'Duel cheanel ABS',
@@ -127,6 +137,7 @@ const products = [
         description: 'Taro Gp-one is an chainis brand. This is the beautiful bike. This bike has most powerful engine and gorgeous looks and design.'
     },
     {
+        id: 11,
         name: 'Tero GP-TWO',
         verssion: 'Chainis',
         breaking: 'Duel cheanel ABS',
@@ -151,7 +162,7 @@ const Products = () => {
                     {products.map((product, index) => (
                     <Grid item xs={2} sm={4} md={4} key={index}>
                         <Product 
-                        key={product.name}
+                        key={product.id}
                         product={product}
                         ></Product>
                     </Grid>

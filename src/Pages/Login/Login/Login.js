@@ -11,11 +11,12 @@ const Login = () => {
     const location = useLocation();
     const history = useHistory()
 
-    const handleOnChange= e =>{
+    const handleonBlur= e =>{
         const field = e.target.name;
         const value = e.target.value;
         const newLoginData = { ...loginData };
         newLoginData[field] = value;
+        console.log(newLoginData)
         setLoginData(newLoginData);
     }
     const handleLogin= e =>{
@@ -34,7 +35,7 @@ const Login = () => {
                     label="Your Email" 
                     type="email"
                     name="email"
-                    onChange={handleOnChange}
+                    onBlur={handleonBlur}
                     variant="standard" />
                     <TextField 
                     sx={{width: '75%', m: 1}}
@@ -42,7 +43,7 @@ const Login = () => {
                     label="Password" 
                     type="password"
                     name="password"
-                    onChange={handleOnChange}
+                    onBlur={handleonBlur}
                     variant="standard" />
                     {/* Sigin Button  */}
                     <Button sx={{width: '75%', m: 1}} type="submit" variant="contained">Sign in</Button>

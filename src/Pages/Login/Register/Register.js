@@ -1,17 +1,17 @@
 import { Alert, Button, CircularProgress, Container, Grid, TextField, Typography } from '@mui/material';
-import { height } from '@mui/system';
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import registerBanner from '../../../images/banner4.jpg'
 
 
 const Register = () => {
     const [loginData, setLoginData] = useState({})
+    const history = useHistory()
 
     const {user, registerUser, isLoding, authError}= useAuth();
 
-    const handleOnChange= e =>{
+    const handleonBlur= e =>{
         const field = e.target.name;
         const value = e.target.value;
         const newLoginData = { ...loginData };
@@ -25,7 +25,7 @@ const Register = () => {
             return;
         }
 
-        registerUser(loginData.email, loginData.password)
+        registerUser(loginData.email, loginData.password,loginData.name, history)
 
         e.preventDefault()
     }
@@ -41,7 +41,7 @@ const Register = () => {
                         label="Your Name" 
                         type="text"
                         name="name"
-                        onChange={handleOnChange}
+                        onBlur={handleonBlur}
                         variant="standard" 
                     />
                     <TextField 
@@ -50,7 +50,7 @@ const Register = () => {
                         label="Your Email" 
                         type="email"
                         name="email"
-                        onChange={handleOnChange}
+                        onBlur={handleonBlur}
                         variant="standard" 
                     />
                     <TextField 
@@ -59,7 +59,7 @@ const Register = () => {
                         label="Password" 
                         type="password"
                         name="password"
-                        onChange={handleOnChange}
+                        onBlur={handleonBlur}
                         variant="standard" 
                     />
                     <TextField 
@@ -68,7 +68,7 @@ const Register = () => {
                         label="conform password" 
                         type="password"
                         name="password2"
-                        onChange={handleOnChange}
+                        onBlur={handleonBlur}
                         variant="standard" 
                     />
                     {/* Sigin Button  */}
