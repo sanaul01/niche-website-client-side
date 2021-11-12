@@ -10,6 +10,7 @@ import Purchase from './Pages/Home/Purchase/Purchase';
 import Login from './Pages/Login/Login/Login';
 import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
 import Register from './Pages/Login/Register/Register';
+import Navigation from './Pages/Sheard/Navigation/Navigation';
 
 
 function App() {
@@ -17,8 +18,12 @@ function App() {
     <div className="App">
       <AuthProvider>
         <Router>
+          <Navigation></Navigation>
           <Switch>
             <Route exact path='/'>
+              <Home></Home>
+            </Route>
+            <Route path='/home'>
               <Home></Home>
             </Route>
             <Route path='/login'>

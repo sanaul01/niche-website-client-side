@@ -15,8 +15,9 @@ import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import { Grid } from '@mui/material';
+import { Button, Grid } from '@mui/material';
 import OrderReview from '../../Home/OrderReview/OrderReview';
+import { NavLink } from 'react-router-dom';
 
 const drawerWidth = 140;
 
@@ -33,6 +34,12 @@ const Dashbord = (props) => {
     <div>
       <Toolbar />
       <Divider />
+        <NavLink to='/home'>
+            <Button color="inherit">Home</Button>
+        </NavLink>
+        <NavLink to='/explore'>
+            <Button color="inherit">Explore</Button>
+        </NavLink>
       <List>
         {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
           <ListItem button key={text}>
@@ -112,10 +119,10 @@ const Dashbord = (props) => {
         <Toolbar />
         <Typography paragraph>
           <Grid container spacing={2}>
-              <Grid item xs={6}>
+              <Grid item xs={4}>
 
               </Grid>
-              <Grid item xs={6}>
+              <Grid item xs={8}>
                 <OrderReview></OrderReview>
               </Grid>
           </Grid>
