@@ -5,7 +5,7 @@ import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import { Grid } from '@mui/material';
+import { Grid, TextField } from '@mui/material';
 
 const Purchase = () => {
     const {productId} = useParams();
@@ -14,7 +14,17 @@ const Purchase = () => {
         fetch(`http://localhost:5000/products/${productId}`)
         .then(res =>res.json())
         .then(data=>setProduct(data))
-    }, [])
+    }, []);
+
+    const handleonBlur= e =>{
+        
+        e.preventDefault()
+    }
+
+    const handleAddedOrder = e =>{
+        e.preventDefault()
+    }
+    
     return (
         <Grid container spacing={2}>
             <Grid item xs={12} md={6}>
@@ -54,8 +64,6 @@ const Purchase = () => {
                         <Typography variant="body2" color="text.secondary">
                             {product?.description}
                         </Typography>
-                        
-                            <Button variant="contained" size="small">Purchase Now</Button>
                     </CardContent>
                 </Card>
             </Grid>
@@ -64,6 +72,42 @@ const Purchase = () => {
                 <Typography variant="h5" component="div">
                     Order Product
                 </Typography>
+                <form onSubmit={handleAddedOrder}>
+                        <TextField 
+                        sx={{width: '75%', m: 1}}
+                        id="standard-basic" 
+                        label="Product Name" 
+                        type="name"
+                        name="name"
+                        onBlur={handleonBlur}
+                        variant="standard" />
+                        <TextField 
+                        sx={{width: '75%', m: 1}}
+                        id="standard-basic" 
+                        label="Price" 
+                        type="name"
+                        name="name"
+                        onBlur={handleonBlur}
+                        variant="standard" />
+                        <TextField 
+                        sx={{width: '75%', m: 1}}
+                        id="standard-basic" 
+                        label="Your Name" 
+                        type="name"
+                        name="name"
+                        onBlur={handleonBlur}
+                        variant="standard" />
+                        <TextField 
+                        sx={{width: '75%', m: 1}}
+                        id="standard-basic" 
+                        label="Your Email" 
+                        type="email"
+                        name="name"
+                        onBlur={handleonBlur}
+                        variant="standard" />
+                    
+                    <Button sx={{width: '75%', m: 1}} type="submit" variant="contained">Order Now</Button>
+                    </form>
                 </Card>
             </Grid>
         </Grid>
