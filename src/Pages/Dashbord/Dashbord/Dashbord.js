@@ -15,15 +15,29 @@ import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import { Button, Grid } from '@mui/material';
-import OrderReview from '../../Home/OrderReview/OrderReview';
+import { Button} from '@mui/material';
 import { NavLink } from 'react-router-dom';
+import {
+  Switch,
+  Route,
+  useRouteMatch
+} from "react-router-dom";
+import DashbordHome from './DashbordHome/DashbordHome';
+import MakeAdmin from './MakeAdmin/MakeAdmin';
+import AddedProduct from '../../Home/AddedProduct/AddedProduct';
+import Payment from './Payment/Payment';
+import ManageAlorder from '../../Home/ManageAlorder/ManageAlorder';
+import useAuth from '../../../hooks/useAuth';
+import AdminRoute from '../../Login/AdminRoute/AdminRoute';
+
 
 const drawerWidth = 140;
 
 const Dashbord = (props) => {
 
-    const { window } = props;
+  const {admin} = useAuth()
+  let { path, url } = useRouteMatch();
+  const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
   const handleDrawerToggle = () => {
@@ -37,9 +51,40 @@ const Dashbord = (props) => {
         <NavLink to='/home'>
             <Button color="inherit">Home</Button>
         </NavLink>
-        <NavLink to='/explore'>
-            <Button color="inherit">Explore</Button>
+        <NavLink to={`${url}`}>
+            <Button color="inherit">My Order</Button>
         </NavLink>
+        <NavLink to={`${url}/logout`}>
+            <Button color="inherit">LogOut</Button>
+        </NavLink>
+        <br/>
+        <NavLink to={`${url}/pay`}>
+            <Button color="inherit">Pay</Button>
+        </NavLink>
+        <br/>
+        <NavLink to={`${url}/review`}>
+            <Button color="inherit">Review</Button>
+        </NavLink>
+        
+        
+        <NavLink to={`${url}/manageproduct`}>
+            <Button color="inherit">Manage Product</Button>
+        </NavLink>
+        {admin && <Box>
+          <NavLink to={`${url}/logout`}>
+            <Button color="inherit">LogOut</Button>
+        </NavLink>
+          <NavLink to={`${url}/addproduct`}>
+            <Button color="inherit">Add Product</Button>
+          </NavLink>
+          <NavLink to={`${url}/managealorder`}>
+            <Button color="inherit">Manage Alorder</Button>
+        </NavLink>
+        <NavLink to={`${url}/makeadmin`}>
+            <Button color="inherit">Make Admin</Button>
+        </NavLink>
+          </Box>}
+        
       <List>
         {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
           <ListItem button key={text}>
@@ -85,7 +130,7 @@ const Dashbord = (props) => {
         sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
         aria-label="mailbox folders"
       >
-        {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
+        
         <Drawer
           container={container}
           variant="temporary"
@@ -117,16 +162,26 @@ const Dashbord = (props) => {
         sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
       >
         <Toolbar />
-        <Typography paragraph>
-          <Grid container spacing={2}>
-              <Grid item xs={4}>
-
-              </Grid>
-              <Grid item xs={8}>
-                <OrderReview></OrderReview>
-              </Grid>
-          </Grid>
-        </Typography>
+        <Switch>
+        <Route exact path={path}>
+          <DashbordHome></DashbordHome>
+        </Route>
+        <Route path={`${path}/pay`}>
+          <Payment></Payment>
+        </Route>
+        <Route path={`${path}/myorder`}>
+           
+        </Route>
+        <AdminRoute path={`${path}/makeadmin`}>
+          <MakeAdmin></MakeAdmin>
+        </AdminRoute>
+        <AdminRoute path={`${path}/addproduct`}>
+          <AddedProduct></AddedProduct>
+        </AdminRoute>
+        <AdminRoute path={`${path}/managealorder`}>
+          <ManageAlorder></ManageAlorder>
+        </AdminRoute>
+      </Switch>  
       </Box>
     </Box>
   );
