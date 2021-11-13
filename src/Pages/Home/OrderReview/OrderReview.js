@@ -10,19 +10,44 @@ import Paper from '@mui/material/Paper';
 import { Button } from '@mui/material';
 
 const OrderReview = () => {
-    const {user} = useAuth();
+    const {user, token} = useAuth();
     const [orders, setOrders] = useState([]);
     useEffect(()=>{
         const url = `http://localhost:5000/orders?email=${user.email}`;
-        fetch(url)
+        fetch(url, {
+            headers: {
+                'authorization': `Bearer ${token}`
+            }
+        })
         .then(res => res.json())
         .then(data => setOrders(data))
     }, [])
+
+    const handleDeleteOrder = id =>{
+        const proced = window.confirm('Are you sure to delete order?');
+        if(proced){
+            const url = `http://localhost:5000/orders/${id}`;
+            fetch(url, {
+                method: 'DELETE'
+            })
+            .then(res => res.json())
+            .then(data =>{
+                if(data.deletedCount > 0){
+                alert("Deleted Successfully")
+                const remainingOrder = orders.filter(order => order._id !== id)
+                setOrders(remainingOrder);
+            }
+        })
+        }
+
+    }
+
+
     return (
         <>
-            <h2>Order review: {orders.length}</h2>
+            <h2>My Orders: {orders.length}</h2>
             <TableContainer component={Paper}>
-                <Table sx={{ minWidth: 450, maxWidth: 500 }} aria-label="OderView table">
+                <Table sx={{ minWidth: 450}} aria-label="OderView table">
                     <TableHead>
                     <TableRow>
                         <TableCell>Name</TableCell>
@@ -46,7 +71,9 @@ const OrderReview = () => {
                         <TableCell align="right">TK {row.productPrice}</TableCell>
                         <TableCell align="right">{row.phone}</TableCell>
                         <TableCell align="right">{row.email}</TableCell>
-                        <TableCell align="right"><Button>X</Button></TableCell>
+                            <TableCell align="right">
+                                <Button onClick={()=>handleDeleteOrder(row._id)}>X</Button>
+                            </TableCell>
                         </TableRow>
                     ))}
                     </TableBody>

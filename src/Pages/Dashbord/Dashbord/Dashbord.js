@@ -31,11 +31,11 @@ import useAuth from '../../../hooks/useAuth';
 import AdminRoute from '../../Login/AdminRoute/AdminRoute';
 
 
-const drawerWidth = 140;
+const drawerWidth = 240;
 
 const Dashbord = (props) => {
 
-  const {admin} = useAuth()
+  const {admin, logOut} = useAuth()
   let { path, url } = useRouteMatch();
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -51,29 +51,25 @@ const Dashbord = (props) => {
         <NavLink to='/home'>
             <Button color="inherit">Home</Button>
         </NavLink>
-        <NavLink to={`${url}`}>
+        {!admin &&
+          <Box>
+            <NavLink to={`${url}`}>
             <Button color="inherit">My Order</Button>
-        </NavLink>
-        <NavLink to={`${url}/logout`}>
-            <Button color="inherit">LogOut</Button>
-        </NavLink>
-        <br/>
-        <NavLink to={`${url}/pay`}>
-            <Button color="inherit">Pay</Button>
-        </NavLink>
-        <br/>
-        <NavLink to={`${url}/review`}>
-            <Button color="inherit">Review</Button>
-        </NavLink>
-        
-        
+            </NavLink>
+            <br/>
+            <NavLink to={`${url}/pay`}>
+                <Button color="inherit">Pay</Button>
+            </NavLink>
+            <br/>
+            <NavLink to={`${url}/review`}>
+                <Button color="inherit">Review</Button>
+            </NavLink>
+          </Box>
+        }
         <NavLink to={`${url}/manageproduct`}>
             <Button color="inherit">Manage Product</Button>
         </NavLink>
         {admin && <Box>
-          <NavLink to={`${url}/logout`}>
-            <Button color="inherit">LogOut</Button>
-        </NavLink>
           <NavLink to={`${url}/addproduct`}>
             <Button color="inherit">Add Product</Button>
           </NavLink>
@@ -122,6 +118,9 @@ const Dashbord = (props) => {
           </IconButton>
           <Typography variant="h6" noWrap component="div">
             Dashboard
+          </Typography>
+          <Typography sx={{marginLeft: '50px'}} variant="h6" noWrap component="div">
+            <Button  onClick={logOut} color="inherit">LogOut</Button>
           </Typography>
         </Toolbar>
       </AppBar>

@@ -4,7 +4,8 @@ import './App.css';
 import AuthProvider from './Context/AuthProvider/AuthProvider';
 import Dashbord from './Pages/Dashbord/Dashbord/Dashbord';
 import AddedProduct from './Pages/Home/AddedProduct/AddedProduct';
-import Explore from './Pages/Home/Explore/Explore';
+import Explores from './Pages/Home/Explore/Explores';
+
 import Home from './Pages/Home/Home/Home';
 import Purchase from './Pages/Home/Purchase/Purchase';
 import Login from './Pages/Login/Login/Login';
@@ -32,15 +33,15 @@ function App() {
             <Route path='/register'>
               <Register></Register>
             </Route>
-            <PrivateRoute path="/explore">
-              <Explore></Explore>
-            </PrivateRoute>
+            <Route path="/explore">
+              <Explores></Explores>
+            </Route>
             <PrivateRoute path="/dashbord">
               <Dashbord></Dashbord>
             </PrivateRoute>
-            <Route path="/purchase/:productId">
+            <PrivateRoute path="/purchase/:productId">
               <Purchase></Purchase>
-            </Route>
+            </PrivateRoute>
             <Route path="/addedProduct">
               <AddedProduct></AddedProduct>
             </Route>
