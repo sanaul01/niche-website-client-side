@@ -9,7 +9,7 @@ import Typography from '@mui/material/Typography';
 const Products = () => {
     const [products, setProducts] = useState();
     useEffect(()=>{
-        fetch('http://localhost:5000/products')
+        fetch(`http://localhost:5000/products?page=${1}&&size=${6}`)
         .then(res=>res.json())
         .then(data => setProducts(data.products))
     }, [])
@@ -17,7 +17,6 @@ const Products = () => {
         <Box sx={{ flexGrow: 1 }}>
             <Container>
                 <Typography variant="h6" component="div" sx={{fontWeight: 600, mb: 5, color: 'error.main'}}>
-                    OUR PRODUCTS
                 </Typography>
                 <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
                     {products?.map((product, index) => (

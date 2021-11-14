@@ -29,6 +29,9 @@ import Payment from './Payment/Payment';
 import ManageAlorder from '../../Home/ManageAlorder/ManageAlorder';
 import useAuth from '../../../hooks/useAuth';
 import AdminRoute from '../../Login/AdminRoute/AdminRoute';
+import ManageProducts from '../../Home/ManageProducts/ManageProducts';
+import OrderReview from '../../Home/OrderReview/OrderReview';
+import Review from '../Review/Review';
 
 
 const drawerWidth = 240;
@@ -53,7 +56,7 @@ const Dashbord = (props) => {
         </NavLink>
         {!admin &&
           <Box>
-            <NavLink to={`${url}`}>
+            <NavLink to={`${url}/myorder`}>
             <Button color="inherit">My Order</Button>
             </NavLink>
             <br/>
@@ -66,9 +69,7 @@ const Dashbord = (props) => {
             </NavLink>
           </Box>
         }
-        <NavLink to={`${url}/manageproduct`}>
-            <Button color="inherit">Manage Product</Button>
-        </NavLink>
+        
         {admin && <Box>
           <NavLink to={`${url}/addproduct`}>
             <Button color="inherit">Add Product</Button>
@@ -78,6 +79,9 @@ const Dashbord = (props) => {
         </NavLink>
         <NavLink to={`${url}/makeadmin`}>
             <Button color="inherit">Make Admin</Button>
+        </NavLink>
+        <NavLink to={`${url}/manageproduct`}>
+            <Button color="inherit">Manage Product</Button>
         </NavLink>
           </Box>}
         
@@ -169,13 +173,19 @@ const Dashbord = (props) => {
           <Payment></Payment>
         </Route>
         <Route path={`${path}/myorder`}>
-           
+           <OrderReview></OrderReview>
+        </Route>
+        <Route path={`${path}/review`}>
+           <Review></Review>
         </Route>
         <AdminRoute path={`${path}/makeadmin`}>
           <MakeAdmin></MakeAdmin>
         </AdminRoute>
         <AdminRoute path={`${path}/addproduct`}>
           <AddedProduct></AddedProduct>
+        </AdminRoute>
+        <AdminRoute path={`${path}/manageproduct`}>
+          <ManageProducts></ManageProducts>
         </AdminRoute>
         <AdminRoute path={`${path}/managealorder`}>
           <ManageAlorder></ManageAlorder>

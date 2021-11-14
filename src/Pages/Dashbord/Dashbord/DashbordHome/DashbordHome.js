@@ -1,12 +1,11 @@
 import { Grid } from '@mui/material';
 import React from 'react';
-import OrderReview from '../../../Home/OrderReview/OrderReview';
+import banner from '../../../../images/banner1.webp'
 
 const DashbordHome = () => {
     return (
         <Grid container spacing={1}>
-
-                <OrderReview></OrderReview>
+            <img src={banner} alt="" />
         </Grid>
     );
 };
