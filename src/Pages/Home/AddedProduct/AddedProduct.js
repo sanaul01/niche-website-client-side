@@ -21,7 +21,7 @@ const AddedProduct = () => {
             ...addedProduct
         }
         
-        fetch('http://localhost:5000/products', {
+        fetch('https://arcane-dawn-96246.herokuapp.com/products', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

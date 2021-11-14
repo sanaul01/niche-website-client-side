@@ -13,7 +13,7 @@ const OrderReview = () => {
     const {user, token} = useAuth();
     const [orders, setOrders] = useState([]);
     useEffect(()=>{
-        const url = `http://localhost:5000/orders?email=${user.email}`;
+        const url = `https://arcane-dawn-96246.herokuapp.com/orders?email=${user.email}`;
         fetch(url, {
             headers: {
                 'authorization': `Bearer ${token}`
@@ -26,7 +26,7 @@ const OrderReview = () => {
     const handleDeleteOrder = id =>{
         const proced = window.confirm('Are you sure to delete order?');
         if(proced){
-            const url = `http://localhost:5000/orders/${id}`;
+            const url = `https://arcane-dawn-96246.herokuapp.com/orders/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })

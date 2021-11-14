@@ -47,7 +47,7 @@ const BookingModal = ({bookingOpen, handleBookingClose, product, setBookingSucce
         }
         
         // sent data to server 
-        fetch('http://localhost:5000/orders', {
+        fetch('https://arcane-dawn-96246.herokuapp.com/orders', {
             method: 'POST',
             headers: {
                 'content-type' : 'application/json'

@@ -20,7 +20,7 @@ const Purchase = () => {
 
 
     useEffect(()=>{
-        fetch(`http://localhost:5000/products/${productId}`)
+        fetch(`https://arcane-dawn-96246.herokuapp.com/products/${productId}`)
         .then(res =>res.json())
         .then(data=>setProduct(data))
     }, []);

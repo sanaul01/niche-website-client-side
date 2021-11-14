@@ -10,7 +10,7 @@ import Paper from '@mui/material/Paper';
 const ManageAlorder = () => {
     const [orders, setOrders] = useState();
     useEffect(()=>{
-        fetch('http://localhost:5000/orders/id')
+        fetch('https://arcane-dawn-96246.herokuapp.com/orders/id')
         .then(res => res.json())
         .then(data=> setOrders(data))
     }, [])

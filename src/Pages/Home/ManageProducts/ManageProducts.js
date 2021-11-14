@@ -12,7 +12,7 @@ import { NavLink } from 'react-router-dom';
 const ManageProducts = () => {
     const [products, setProducts] = useState();
     useEffect(()=>{
-        fetch(`http://localhost:5000/products`)
+        fetch(`https://arcane-dawn-96246.herokuapp.com/products`)
         .then(res => res.json())
         .then(data => setProducts(data.products))
     }, [])
@@ -21,7 +21,7 @@ const ManageProducts = () => {
     const handleDeleteProduct = id =>{
       const proced = window.confirm('Are you sure to delete order?');
       if(proced){
-          const url = `http://localhost:5000/products/${id}`;
+          const url = `https://arcane-dawn-96246.herokuapp.com/products/${id}`;
           fetch(url, {
               method: 'DELETE'
           })
