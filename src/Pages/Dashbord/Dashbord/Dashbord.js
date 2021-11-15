@@ -51,36 +51,35 @@ const Dashbord = (props) => {
     <div>
       <Toolbar />
       <Divider />
-        <NavLink to='/home'>
-            <Button color="inherit">Home</Button>
-        </NavLink>
+      <Button  onClick={logOut} color="inherit">LogOut</Button>
+        
         {!admin &&
           <Box>
-            <NavLink to={`${url}/myorder`}>
+            <NavLink to={`${url}/myorder`} style={{textDecoration: 'none'}}>
             <Button color="inherit">My Order</Button>
             </NavLink>
             <br/>
-            <NavLink to={`${url}/pay`}>
+            <NavLink to={`${url}/pay`} style={{textDecoration: 'none'}}>
                 <Button color="inherit">Pay</Button>
             </NavLink>
             <br/>
-            <NavLink to={`${url}/review`}>
+            <NavLink to={`${url}/review`} style={{textDecoration: 'none'}}>
                 <Button color="inherit">Review</Button>
             </NavLink>
           </Box>
         }
         
         {admin && <Box>
-          <NavLink to={`${url}/addproduct`}>
+          <NavLink to={`${url}/addproduct`} style={{textDecoration: 'none'}}>
             <Button color="inherit">Add Product</Button>
           </NavLink>
-          <NavLink to={`${url}/managealorder`}>
+          <NavLink to={`${url}/managealorder`} style={{textDecoration: 'none'}}>
             <Button color="inherit">Manage Alorder</Button>
         </NavLink>
-        <NavLink to={`${url}/makeadmin`}>
+        <NavLink to={`${url}/makeadmin`} style={{textDecoration: 'none'}}>
             <Button color="inherit">Make Admin</Button>
         </NavLink>
-        <NavLink to={`${url}/manageproduct`}>
+        <NavLink to={`${url}/manageproduct`} style={{textDecoration: 'none'}}>
             <Button color="inherit">Manage Product</Button>
         </NavLink>
           </Box>}
@@ -123,8 +122,11 @@ const Dashbord = (props) => {
           <Typography variant="h6" noWrap component="div">
             Dashboard
           </Typography>
+
           <Typography sx={{marginLeft: '50px'}} variant="h6" noWrap component="div">
-            <Button  onClick={logOut} color="inherit">LogOut</Button>
+          <NavLink to='/home' style={{textDecoration: 'none', color: 'white'}}>
+            <Button color="inherit">Home</Button>
+          </NavLink>
           </Typography>
         </Toolbar>
       </AppBar>

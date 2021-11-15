@@ -23,6 +23,7 @@ const OrderReview = () => {
         .then(data => setOrders(data))
     }, [])
 
+    // Delete Order
     const handleDeleteOrder = id =>{
         const proced = window.confirm('Are you sure to delete order?');
         if(proced){
