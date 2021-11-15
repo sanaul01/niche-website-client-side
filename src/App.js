@@ -7,6 +7,7 @@ import AddedProduct from './Pages/Home/AddedProduct/AddedProduct';
 import Explores from './Pages/Home/Explore/Explores';
 
 import Home from './Pages/Home/Home/Home';
+import NotFound from './Pages/Home/NotFound/NotFound';
 import Purchase from './Pages/Home/Purchase/Purchase';
 import Login from './Pages/Login/Login/Login';
 import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
@@ -44,6 +45,9 @@ function App() {
             </PrivateRoute>
             <Route path="/addedProduct">
               <AddedProduct></AddedProduct>
+            </Route>
+            <Route path="*">
+              <NotFound></NotFound>
             </Route>
           </Switch>
         </Router>
