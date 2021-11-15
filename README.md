@@ -9,3 +9,5 @@
 
 #This site is about Bike related
 
+# Admin = admin@admin.com  /and pass: 123456
+# another admin = nepal@gmail.com /and pass: 123456
