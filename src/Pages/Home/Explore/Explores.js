@@ -10,7 +10,7 @@ const Explores = () => {
     const [pageCount, setPageCount] = useState(0)
     const [page, setPage] = useState(0)
 
-    const size = 10;
+    const size = 12;
 
     useEffect(()=>{
         fetch(`https://arcane-dawn-96246.herokuapp.com/products?page=${page}&&size=${size}`)
