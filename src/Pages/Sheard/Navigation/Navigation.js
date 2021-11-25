@@ -25,7 +25,7 @@ const Navigation = () => {
                     <MenuIcon />
                 </IconButton>
                 <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                    BIKE~LOVER
+                    BIKE~LOVERS
                 </Typography>
                 <NavLink to='/home' style={{textDecoration: 'none', color: 'white'}}>
                     <Button color="inherit">Home</Button>
