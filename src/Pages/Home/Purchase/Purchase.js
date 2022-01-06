@@ -101,7 +101,7 @@ const Purchase = () => {
               >
                 Weight:{" "}
                 <span style={{ fontSize: 16, color: "black" }}>
-                  {product?.weight}
+                  {product?.weight} kg
                 </span>
               </Typography>
               <Typography
@@ -111,7 +111,7 @@ const Purchase = () => {
               >
                 Top-Speed:{" "}
                 <span style={{ fontSize: 16, color: "black" }}>
-                  {product?.topspeed}
+                  {product?.topspeed} k/h
                 </span>
               </Typography>
               <Typography
@@ -121,7 +121,7 @@ const Purchase = () => {
               >
                 Price:{" "}
                 <span style={{ fontSize: 16, color: "black" }}>
-                  {product?.price}
+                  {product?.price} Tk
                 </span>
               </Typography>
 
@@ -130,7 +130,7 @@ const Purchase = () => {
                 variant="body2"
                 color="text.secondary"
               >
-                <span style={{ fontSize: 16, color: "black" }}>
+                <span style={{ fontSize: 16, color: "gray" }}>
                   {product?.description}
                 </span>
               </Typography>
