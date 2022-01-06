@@ -8,12 +8,13 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import { NavLink } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
+import { lightGreen } from "@mui/material/colors";
 
 const Navigation = () => {
     const {user, logOut} = useAuth();
     return (
         <Box sx={{ flexGrow: 1 }}>
-            <AppBar position="static">
+            <AppBar position="static" sx={{ backgroundColor: lightGreen[800] }}>
                 <Toolbar>
                 <IconButton
                     size="large"

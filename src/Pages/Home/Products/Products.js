@@ -4,6 +4,7 @@ import Grid from "@mui/material/Grid";
 import { Container } from "@mui/material";
 import Product from "../Product/Product";
 import Typography from "@mui/material/Typography";
+import { lightGreen } from "@mui/material/colors";
 
 const Products = () => {
   const [products, setProducts] = useState();
@@ -18,7 +19,7 @@ const Products = () => {
         <Typography
           variant="h6"
           component="div"
-          sx={{ fontWeight: 600, mb: 5, color: "blue" }}
+          sx={{ fontWeight: 800, fontSize: 24, mb: 5, color: lightGreen[900] }}
         >
           Home Page
         </Typography>
