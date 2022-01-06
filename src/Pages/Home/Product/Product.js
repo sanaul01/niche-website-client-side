@@ -5,11 +5,12 @@ import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { NavLink } from "react-router-dom";
+import { lightGreen } from "@mui/material/colors";
 
 const Product = ({ product }) => {
   const { _id, name, description, image } = product;
   return (
-    <Card sx={{ minWidth: 275, border: 0, boxShadow: 0 }}>
+    <Card sx={{ my: 3, minWidth: 275, border: 0, "&:hover": { boxShadow: 5 } }}>
       <CardMedia
         component="img"
         style={{
@@ -21,7 +22,7 @@ const Product = ({ product }) => {
         image={image}
         alt="Paella dish"
       />
-      <CardContent>
+      <CardContent style={{ textAlign: "left" }}>
         <Typography variant="h5" component="div">
           {name}
         </Typography>
@@ -33,7 +34,7 @@ const Product = ({ product }) => {
           to={`/purchase/${_id}`}
         >
           <Button
-            style={{ marginTop: "15px" }}
+            style={{ marginTop: "15px", backgroundColor: lightGreen[700] }}
             variant="contained"
             size="small"
           >
