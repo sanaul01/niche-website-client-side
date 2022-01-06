@@ -9,7 +9,7 @@ const Footer = () => {
                     <div className="col-md-3 col-md-6">
                         <h3>BIKE~LOVER</h3>
                         <ul className="list-unstyled">
-                            <h4>Phone: 012222222222</h4>
+                            <h4>Phone: 01722586777</h4>
                             <h4>Email: Bike@Lover.com</h4>
                             <h4>FaceBook: Bike~Lover@facebook.com</h4>
                         </ul>

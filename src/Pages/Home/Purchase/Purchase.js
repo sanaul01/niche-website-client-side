@@ -1,91 +1,169 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router';
-import Card from '@mui/material/Card';
-import CardMedia from '@mui/material/CardMedia';
-import CardContent from '@mui/material/CardContent';
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router";
+import Card from "@mui/material/Card";
+import CardMedia from "@mui/material/CardMedia";
+import CardContent from "@mui/material/CardContent";
 
-import Typography from '@mui/material/Typography';
-import { Alert, Button, Grid} from '@mui/material';
-import BookingModal from '../../Dashbord/BookingModal/BookingModal';
+import Typography from "@mui/material/Typography";
+import { Alert, Button, Grid } from "@mui/material";
+import BookingModal from "../../Dashbord/BookingModal/BookingModal";
+import { lightBlue, lightGreen } from "@mui/material/colors";
 
 const Purchase = () => {
-    const {productId} = useParams();
-    const [product, setProduct] = useState();
-    const [bookingSuccess, setBookingSuccess] = useState(false);
+  const { productId } = useParams();
+  const [product, setProduct] = useState();
+  const [bookingSuccess, setBookingSuccess] = useState(false);
 
-    const [bookingOpen, setBookingOpen] = React.useState(false);
-    const handleBookingOpen = () => setBookingOpen(true);
-    const handleBookingClose = () => setBookingOpen(false);
+  const [bookingOpen, setBookingOpen] = React.useState(false);
+  const handleBookingOpen = () => setBookingOpen(true);
+  const handleBookingClose = () => setBookingOpen(false);
 
+  useEffect(() => {
+    fetch(`https://arcane-dawn-96246.herokuapp.com/products/${productId}`)
+      .then((res) => res.json())
+      .then((data) => setProduct(data));
+  }, []);
 
+  return (
+    <>
+      <Grid container spacing={2} sx={{ my: 5 }}>
+        <Grid item xs={12} md={12} style={{ display: "flex" }}>
+          <Grid
+            xs={12}
+            md={6}
+            sx={{ margin: "30px", minWidth: 275, border: 0, boxShadow: 0 }}
+          >
+            <CardMedia
+              component="img"
+              style={{
+                width: "auto",
+                height: "300px",
+                margin: "0 auto",
+                borderRadius: "15px",
+              }}
+              image={product?.image}
+              alt="Paella dish"
+            />
+          </Grid>
+          <Grid xs={12} md={6}>
+            <CardContent style={{ textAlign: "left" }}>
+              <Typography
+                style={{ fontWeight: 700, color: lightBlue[600] }}
+                variant="h5"
+                component="div"
+              >
+                {product?.name}
+              </Typography>
+              <Typography
+                style={{ fontWeight: 700, color: lightGreen[600] }}
+                variant="h6"
+                component="div"
+              >
+                Varssion:{" "}
+                <span style={{ fontSize: 16, color: "black" }}>
+                  {product?.verssion}
+                </span>
+              </Typography>
+              <Typography
+                style={{ fontWeight: 700, color: lightGreen[600] }}
+                variant="h6"
+                component="div"
+              >
+                Breaking System:{" "}
+                <span style={{ fontSize: 16, color: "black" }}>
+                  {product?.breaking}
+                </span>
+              </Typography>
+              <Typography
+                style={{ fontWeight: 700, color: lightGreen[600] }}
+                variant="h6"
+                component="div"
+              >
+                Colour:{" "}
+                <span style={{ fontSize: 16, color: "black" }}>
+                  {product?.colour}
+                </span>
+              </Typography>
+              <Typography
+                style={{ fontWeight: 700, color: lightGreen[600] }}
+                variant="h6"
+                component="div"
+              >
+                Mileage:{" "}
+                <span style={{ fontSize: 16, color: "black" }}>
+                  {product?.mileage}
+                </span>
+              </Typography>
+              <Typography
+                style={{ fontWeight: 700, color: lightGreen[600] }}
+                variant="h6"
+                component="div"
+              >
+                Weight:{" "}
+                <span style={{ fontSize: 16, color: "black" }}>
+                  {product?.weight}
+                </span>
+              </Typography>
+              <Typography
+                style={{ fontWeight: 700, color: lightGreen[600] }}
+                variant="h6"
+                component="div"
+              >
+                Top-Speed:{" "}
+                <span style={{ fontSize: 16, color: "black" }}>
+                  {product?.topspeed}
+                </span>
+              </Typography>
+              <Typography
+                style={{ fontWeight: 700, color: lightGreen[600] }}
+                variant="h6"
+                component="div"
+              >
+                Price:{" "}
+                <span style={{ fontSize: 16, color: "black" }}>
+                  {product?.price}
+                </span>
+              </Typography>
 
-    useEffect(()=>{
-        fetch(`https://arcane-dawn-96246.herokuapp.com/products/${productId}`)
-        .then(res =>res.json())
-        .then(data=>setProduct(data))
-    }, []);
-    
-    return (
-        <>
-            <Grid container spacing={2}>
-                <Grid item xs={12} md={6}>
-                    <Card sx={{margin: "30px", minWidth: 275, border: 0, boxShadow: 0}}>
-                        <CardMedia
-                            component="img"
-                            style={{width: 'auto', height: '200px', margin: '0 auto'}}
-                            image={product?.image}
-                            alt="Paella dish"
-                        />
-                        <CardContent>
-                            <Typography variant="h5" component="div">
-                                {product?.name}
-                            </Typography>
-                            <Typography variant="h5" component="div">
-                                Varssion: {product?.verssion}
-                            </Typography>
-                            <Typography variant="h5" component="div">
-                                Breaking System: {product?.breaking}
-                            </Typography>
-                            <Typography variant="h5" component="div">
-                                Colour: {product?.colour}
-                            </Typography>
-                            <Typography variant="h5" component="div">
-                                Mileage: {product?.mileage}
-                            </Typography>
-                            <Typography variant="h5" component="div">
-                                Weight: {product?.weight}
-                            </Typography>
-                            <Typography variant="h5" component="div">
-                                Top-Speed: {product?.topspeed}
-                            </Typography>
-                            <Typography variant="h5" component="div">
-                                Price: {product?.price}
-                            </Typography>
-
-                            <Typography variant="body2" color="text.secondary">
-                                {product?.description}
-                            </Typography>
-                            <Button onClick={handleBookingOpen} variant="contained">Booking Now</Button>
-                        </CardContent>
-                    </Card>
-                </Grid>
-                <Grid item xs={12} md={6}>
-                    <Card sx={{margin: "100px", minWidth: 275, border: 0, boxShadow: 0}}>
-                        <Typography variant="h6" component="div">
-                            {bookingSuccess && <Alert severity="success">Booking successfully!</Alert>}
-                        </Typography>
-                    </Card>
-                
-                </Grid>
-            </Grid>
-            <BookingModal
-                product={product}
-                bookingOpen={bookingOpen}
-                handleBookingClose={handleBookingClose}
-                setBookingSuccess={setBookingSuccess}
-            ></BookingModal>
-        </>
-    );
+              <Typography
+                style={{ fontWeight: 700, color: lightGreen[600] }}
+                variant="body2"
+                color="text.secondary"
+              >
+                <span style={{ fontSize: 16, color: "black" }}>
+                  {product?.description}
+                </span>
+              </Typography>
+              <Button
+                sx={{ my: 3, backgroundColor: lightGreen[700] }}
+                onClick={handleBookingOpen}
+                variant="contained"
+              >
+                Booking Now
+              </Button>
+            </CardContent>
+          </Grid>
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <Card
+            sx={{ margin: "100px", minWidth: 275, border: 0, boxShadow: 0 }}
+          >
+            <Typography variant="h6" component="div">
+              {bookingSuccess && (
+                <Alert severity="success">Booking successfully!</Alert>
+              )}
+            </Typography>
+          </Card>
+        </Grid>
+      </Grid>
+      <BookingModal
+        product={product}
+        bookingOpen={bookingOpen}
+        handleBookingClose={handleBookingClose}
+        setBookingSuccess={setBookingSuccess}
+      ></BookingModal>
+    </>
+  );
 };
 
 export default Purchase;
